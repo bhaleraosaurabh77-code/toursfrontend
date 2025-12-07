@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom styling */
+.hero-bg {
+  background-image: linear-gradient(135deg, rgba(30,64,175,0.9), rgba(59,130,246,0.9));
+  background-size: cover;
+  background-position: center;
+}
+html { scroll-behavior: smooth; }
+
+/* Smooth fade animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSlow {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+.animate-fadeInSlow {
+  animation: fadeInSlow 1s ease-out forwards;
+}
