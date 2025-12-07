@@ -95,7 +95,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import Hero from "./components/hero";
+import Hero from "./components/Hero";
 import TourTypes from "./components/TourTypes";
 import DestinationGrid from "./components/DestinationGrid";
 import Features from "./components/Features";
