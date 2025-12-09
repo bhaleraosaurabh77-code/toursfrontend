@@ -73,7 +73,7 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Phone size={14} />
-              <a href="tel:18002093344" className="font-semibold hover:underline">
+              <a href="tel:7709040404" className="font-semibold hover:underline">
                 7709040404
               </a>
             </div>
@@ -193,3 +193,4 @@ export default function Header() {
     </header>
   );
 }
+
