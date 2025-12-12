@@ -47,12 +47,9 @@ function MainContent() {
         </div>
       </section>
 
-      <section id="about" className="max-w-7xl mx-auto py-16 px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0078AA] text-center mb-12">
-          Why Choose Us?
-        </h2>
+    
         <Features />
-      </section>
+      
     </>
   );
 }
