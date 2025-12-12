@@ -1,4 +1,3 @@
-// components/TourTypes.jsx
 import React, { useState } from "react";
 import {
   Compass,
@@ -118,6 +117,7 @@ export default function TourTypes() {
                 key={cat.id}
                 onClick={() => {
                   if (cat.id === "students") navigate("/educational-visits");
+                  else if (cat.id === "family") navigate("/family-holidays"); // <-- activated family
                   else navigate(`/category/${cat.id}`);
                 }}
                 onMouseEnter={() => setHoveredCard(cat.id)}
@@ -184,3 +184,4 @@ export default function TourTypes() {
     </section>
   );
 }
+
