@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import FamilyHolidays from "./pages/FamilyHolidays";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TourTypes from "./components/TourTypes";
@@ -68,6 +68,9 @@ export default function App() {
             {/* Main Website */}
             <Route path="/" element={<MainContent />} />
             <Route path="/educational-visits" element={<EducationalVisitsPage />} />
+            
+            {/* Family Holidays page */}
+            <Route path="/family-holidays" element={<FamilyHolidays />} />
 
             {/* Admin Login Page */}
             <Route path={ADMIN_PATH} element={<AdminLoginPage />} />
