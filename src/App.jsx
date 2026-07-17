@@ -42,6 +42,16 @@ function MainContent() {
         <Hero />
       </section>
 
+      {/* Tour Packages */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* <h2 className="text-3xl md:text-4xl font-bold text-[#0078AA] text-center mb-8">
+          </h2> */}
+
+          <TourCards/>
+        </div>
+      </section>
+
       {/* Tour Types */}
       <section id="packages" className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -53,15 +63,7 @@ function MainContent() {
         </div>
       </section>
 
-      {/* Tour Packages */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* <h2 className="text-3xl md:text-4xl font-bold text-[#0078AA] text-center mb-8">
-          </h2> */}
-
-          <TourCards/>
-        </div>
-      </section>
+      
 
       {/* Destinations */}
       <section id="gallery" className="bg-white py-16">
