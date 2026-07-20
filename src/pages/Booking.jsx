@@ -1,4 +1,6 @@
-// import React, { useState } from "react";
+// import { calculatePricing } from "../utils/pricingEngine";
+// import React, { useState, useEffect } from "react";
+// import { useLocation } from "react-router-dom";
 
 // import Stepper from "../components/booking/Stepper";
 // import AddGuests from "../components/AddGuests";
@@ -6,13 +8,73 @@
 // import BookingSummary from "../components/BookingSummary";
 
 // const Booking = () => {
+//   const location = useLocation();
+
+//   const selectedTour = location.state?.tour || null;
+//   const selectedDeparture = location.state?.departure || null;
+
+//   // Departure price is always Quad Sharing Price
+//   const quadPrice =
+//     selectedDeparture?.price ||
+//     selectedTour?.basePrice ||
+//     11999;
+
+//   const departureDate = selectedDeparture
+//     ? `${selectedDeparture.day}, ${selectedDeparture.date} ${selectedDeparture.month} ${selectedDeparture.year}`
+//     : selectedTour?.nextDeparture || "";
+
 //   const [bookingData, setBookingData] = useState({
-//   adults: 1,
-//   roomType: "Single Sharing",
-//   train: "Sleeper Class",
-//   trainExtra: 0,
-//   pricePerPerson: 18249,
-// });
+//     // Tour
+//     tourName: selectedTour?.title || "Tour",
+//     departure: departureDate,
+
+//     // Guests
+//     adults: 1,
+//     children: 0,
+
+//     // Pricing
+//     basePrice: quadPrice, // Quad Sharing Price
+//     roomType: "Single Sharing",
+
+//     // Default = Single Sharing
+//     pricePerPerson: Math.round(quadPrice * 1.520875),
+
+//     // Child = 70% of Single Sharing
+//     childPrice: Math.round(
+//       Math.round(quadPrice * 1.520875) * 0.70
+//     ),
+
+//     // Train
+//     train: "Sleeper Class",
+//     trainExtra: 0,
+//   });
+
+//   // Update prices whenever departure changes
+//   useEffect(() => {
+//     if (!selectedDeparture) return;
+
+//     const quad = selectedDeparture.price;
+
+//     const single = Math.round(quad * 1.520875);
+
+//     setBookingData((prev) => ({
+//       ...prev,
+
+//       tourName: selectedTour?.title || prev.tourName,
+
+//       departure: `${selectedDeparture.day}, ${selectedDeparture.date} ${selectedDeparture.month} ${selectedDeparture.year}`,
+
+//       basePrice: quad,
+
+//       // Default room when page opens
+//       roomType: "Single Sharing",
+
+//       pricePerPerson: single,
+
+//       childPrice: Math.round(single * 0.70),
+//     }));
+//   }, [selectedDeparture, selectedTour]);
+
 //   return (
 //     <div className="min-h-screen bg-gray-100">
 
@@ -38,38 +100,35 @@
 
 //         <div className="grid lg:grid-cols-3 gap-8 mt-8">
 
-//           {/* LEFT */}
+//           {/* Left */}
 
 //           <div className="lg:col-span-2 space-y-8">
 
-//            <AddGuests
-//             onContinue={(data) => {
-//                 setBookingData((prev) => ({
-//                 ...prev,
-//                 adults: data.adults,
-//                 roomType: data.roomType,
-//                 pricePerPerson: data.pricePerPerson,
-//                 }));
-//             }}
+//             <AddGuests
+//               bookingData={bookingData}
+//               setBookingData={setBookingData}
 //             />
 
-//            <TrainSelection
-//   onContinue={(data) => {
-//     setBookingData((prev) => ({
-//       ...prev,
-//       train: data.train,
-//       trainExtra: data.extra,
-//     }));
-//   }}
-// />
+//             <TrainSelection
+//               onContinue={(data) => {
+//                 setBookingData((prev) => ({
+//                   ...prev,
+//                   train: data.train,
+//                   trainExtra: data.extra,
+//                 }));
+//               }}
+//             />
 
 //           </div>
 
-//           {/* RIGHT */}
+//           {/* Right */}
 
 //           <div>
 
-//            <BookingSummary bookingData={bookingData} />
+//             <BookingSummary
+//               bookingData={bookingData}
+//             />
+
 //           </div>
 
 //         </div>
@@ -85,33 +144,95 @@
 
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Stepper from "../components/booking/Stepper";
 import AddGuests from "../components/AddGuests";
 import TrainSelection from "../components/TrainSelection";
 import BookingSummary from "../components/BookingSummary";
 
+import { calculatePricing } from "../utils/pricingEngine";
+
 const Booking = () => {
-  const [bookingData, setBookingData] = useState({
+  const location = useLocation();
+
+  const selectedTour = location.state?.tour || null;
+  const selectedDeparture = location.state?.departure || null;
+
+  // Departure Price = Quad Sharing Price
+  const quadPrice =
+    selectedDeparture?.price ||
+    selectedTour?.basePrice ||
+    11999;
+
+  const departureDate = selectedDeparture
+    ? `${selectedDeparture.day}, ${selectedDeparture.date} ${selectedDeparture.month} ${selectedDeparture.year}`
+    : selectedTour?.nextDeparture || "";
+
+  // Default Pricing
+  const defaultPricing = calculatePricing({
+    quadPrice,
     adults: 1,
     children: 0,
-    infants: 0,
+    trainExtra: 0,
+  });
 
-    roomType: "Single Sharing",
+  const [bookingData, setBookingData] = useState({
+    // Tour
+    tourName: selectedTour?.title || "Tour",
+    departure: departureDate,
 
-    pricePerPerson: 18249,
-    childPrice: Math.round(11999 * 0.7),
+    // Guests
+    adults: 1,
+    children: 0,
 
+    // Departure Price
+    basePrice: quadPrice,
+
+    // Room
+    roomType: defaultPricing.roomType,
+
+    // Prices
+    pricePerPerson: defaultPricing.adultPrice,
+    childPrice: defaultPricing.childPrice,
+
+    // Train
     train: "Sleeper Class",
     trainExtra: 0,
   });
 
+  // Update whenever departure changes
+  useEffect(() => {
+    if (!selectedDeparture) return;
+
+    const pricing = calculatePricing({
+      quadPrice: selectedDeparture.price,
+      adults: bookingData.adults,
+      children: bookingData.children,
+      trainExtra: bookingData.trainExtra,
+    });
+
+    setBookingData((prev) => ({
+      ...prev,
+
+      tourName: selectedTour?.title || prev.tourName,
+
+      departure: `${selectedDeparture.day}, ${selectedDeparture.date} ${selectedDeparture.month} ${selectedDeparture.year}`,
+
+      basePrice: selectedDeparture.price,
+
+      roomType: pricing.roomType,
+
+      pricePerPerson: pricing.adultPrice,
+
+      childPrice: pricing.childPrice,
+    }));
+  }, [selectedDeparture]);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto py-10 px-6">
-
-        {/* Heading */}
 
         <h1 className="text-4xl font-bold text-blue-700">
           Book Your Tour
@@ -121,17 +242,11 @@ const Booking = () => {
           Complete your booking in 5 easy steps.
         </p>
 
-        {/* Stepper */}
-
         <div className="mt-8">
           <Stepper currentStep={2} />
         </div>
 
-        {/* Main Layout */}
-
         <div className="grid lg:grid-cols-3 gap-8 mt-8">
-
-          {/* LEFT */}
 
           <div className="lg:col-span-2 space-y-8">
 
@@ -152,10 +267,12 @@ const Booking = () => {
 
           </div>
 
-          {/* RIGHT */}
-
           <div>
-            <BookingSummary bookingData={bookingData} />
+
+            <BookingSummary
+              bookingData={bookingData}
+            />
+
           </div>
 
         </div>

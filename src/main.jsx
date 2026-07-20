@@ -12,5 +12,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BookingProvider>
   </React.StrictMode>
 );
-
-createRoot(document.getElementById('root')).render(<App />)

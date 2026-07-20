@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const BookingSummary = ({ bookingData }) => {
@@ -8,20 +9,30 @@ const BookingSummary = ({ bookingData }) => {
     (bookingData.childPrice || 0) * (bookingData.children || 0);
 
   const trainPassengers =
-    (bookingData.adults || 0) + (bookingData.children || 0);
+    (bookingData.adults || 0) +
+    (bookingData.children || 0);
 
   const trainTotal =
-    (bookingData.trainExtra || 0) * trainPassengers;
+    (bookingData.trainExtra || 0) *
+    trainPassengers;
 
-  const subtotal = adultTotal + childTotal + trainTotal;
+  const subtotal =
+    adultTotal +
+    childTotal +
+    trainTotal;
 
-  const gst = Math.round(subtotal * 0.05);
+  // GST Split
+  const cgst = Math.round(subtotal * 0.025);
 
-  const total = subtotal + gst;
+  const sgst = Math.round(subtotal * 0.025);
 
-  const advance = Math.round(total * 0.30);
+  const gst = cgst + sgst;
 
-  const balance = total - advance;
+  const grandTotal = subtotal + gst;
+
+  const advance = Math.round(grandTotal * 0.30);
+
+  const balance = grandTotal - advance;
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
@@ -36,26 +47,26 @@ const BookingSummary = ({ bookingData }) => {
 
         <div className="flex justify-between">
           <span>Tour</span>
-          <strong>Royale Rajasthan</strong>
+          <strong>{bookingData.tourName}</strong>
         </div>
 
         <div className="flex justify-between">
           <span>Departure</span>
-          <strong>06 Sept 2026</strong>
+          <strong>{bookingData.departure}</strong>
         </div>
 
         <div className="flex justify-between">
           <span>Adults (5+)</span>
-          <strong>{bookingData.adults || 0}</strong>
+          <strong>{bookingData.adults}</strong>
         </div>
 
         <div className="flex justify-between">
           <span>Children (2–5)</span>
-          <strong>{bookingData.children || 0}</strong>
+          <strong>{bookingData.children}</strong>
         </div>
 
         <div className="flex justify-between">
-          <span>Room</span>
+          <span>Room Type</span>
           <strong>{bookingData.roomType}</strong>
         </div>
 
@@ -76,7 +87,7 @@ const BookingSummary = ({ bookingData }) => {
 
           <div className="bg-gray-50 rounded-xl border p-4 space-y-3">
 
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <span>
                 Adults ({bookingData.adults} × ₹
                 {(bookingData.pricePerPerson || 0).toLocaleString()})
@@ -88,7 +99,7 @@ const BookingSummary = ({ bookingData }) => {
             </div>
 
             {bookingData.children > 0 && (
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <span>
                   Children ({bookingData.children} × ₹
                   {(bookingData.childPrice || 0).toLocaleString()})
@@ -101,7 +112,7 @@ const BookingSummary = ({ bookingData }) => {
             )}
 
             {(bookingData.trainExtra || 0) > 0 && (
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <span>
                   Train Charges ({trainPassengers} × ₹
                   {(bookingData.trainExtra || 0).toLocaleString()})
@@ -123,32 +134,50 @@ const BookingSummary = ({ bookingData }) => {
 
         <div className="flex justify-between">
           <span>Subtotal</span>
-          <strong>₹{subtotal.toLocaleString()}</strong>
+          <strong>
+            ₹{subtotal.toLocaleString()}
+          </strong>
         </div>
 
         <div className="flex justify-between">
-          <span>GST (5%)</span>
-          <strong>₹{gst.toLocaleString()}</strong>
+          <span>CGST (2.5%)</span>
+          <strong>
+            ₹{cgst.toLocaleString()}
+          </strong>
+        </div>
+
+        <div className="flex justify-between">
+          <span>SGST (2.5%)</span>
+          <strong>
+            ₹{sgst.toLocaleString()}
+          </strong>
         </div>
 
         <hr />
 
         <div className="flex justify-between text-2xl font-bold text-blue-700">
           <span>Grand Total</span>
-          <span>₹{total.toLocaleString()}</span>
+          <span>
+            ₹{grandTotal.toLocaleString()}
+          </span>
         </div>
 
         <div className="flex justify-between text-green-600 font-semibold">
           <span>Advance Payment (30%)</span>
-          <span>₹{advance.toLocaleString()}</span>
+          <span>
+            ₹{advance.toLocaleString()}
+          </span>
         </div>
 
         <div className="flex justify-between text-orange-600 font-semibold">
           <span>Balance Payment (70%)</span>
-          <span>₹{balance.toLocaleString()}</span>
+          <span>
+            ₹{balance.toLocaleString()}
+          </span>
         </div>
 
       </div>
+
     </div>
   );
 };
