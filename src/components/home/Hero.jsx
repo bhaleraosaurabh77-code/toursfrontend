@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Search } from 'lucide-react'
-
+import heroImage from "../../assets/GPYT.png";
 export default function Hero() {
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -34,12 +34,11 @@ export default function Hero() {
         
         {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${new URL('../assets/GPYT.png', import.meta.url).href})`,
-          }}
-          aria-hidden="true"
-        />
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+               backgroundImage: `url(${heroImage})`,
+           }}
+           />
 
         {/* Subtle overlay */}
         <div className="absolute inset-0 bg-black/20" />

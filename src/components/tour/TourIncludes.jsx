@@ -1,83 +1,225 @@
-import React from "react";
+// import React from "react";
+// import {
+//   Hotel,
+//   UtensilsCrossed,
+//   Bus,
+//   Camera,
+//   Tent,
+//   ShieldCheck,
+//   Users,
+//   Coffee,
+//   Luggage,
+//   Ticket,
+// } from "lucide-react";
+
+// const iconMap = {
+//   hotel: Hotel,
+//   meals: UtensilsCrossed,
+//   transport: Bus,
+//   sightseeing: Camera,
+//   camp: Tent,
+//   safari: ShieldCheck,
+//   manager: Users,
+//   welcome: Coffee,
+//   luggage: Luggage,
+//   ticket: Ticket,
+// };
+
+// const TourIncludes = ({ includes = [] }) => {
+//   return (
+//     <section className="bg-white rounded-2xl shadow-lg p-6 mt-8">
+
+//       <div className="flex items-center gap-3 mb-6">
+
+//         <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+//           <ShieldCheck className="text-green-600" size={28} />
+//         </div>
+
+//         <div>
+//           <h2 className="text-2xl font-bold text-blue-700">
+//             Tour Includes
+//           </h2>
+
+//           <p className="text-gray-500 text-sm">
+//             Everything included in your package
+//           </p>
+//         </div>
+
+//       </div>
+
+//       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+//         {includes.map((item, index) => {
+//           const Icon = iconMap[item.icon] || ShieldCheck;
+
+//           return (
+//             <div
+//               key={index}
+//               className="group border border-gray-200 rounded-2xl p-5 hover:border-green-500 hover:shadow-lg transition duration-300 bg-white"
+//             >
+
+//               <div className="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center mb-4 group-hover:bg-green-100 transition">
+
+//                 <Icon
+//                   size={28}
+//                   className="text-green-600"
+//                 />
+
+//               </div>
+
+//               <h3 className="font-semibold text-lg text-gray-800">
+//                 {item.title}
+//               </h3>
+
+//               <p className="text-sm text-gray-500 mt-2">
+//                 {item.description}
+//               </p>
+
+//             </div>
+//           );
+//         })}
+
+//       </div>
+
+//     </section>
+//   );
+// };
+
+// export default TourIncludes;
+
+
+import React, { useState } from "react";
 import {
   Hotel,
   UtensilsCrossed,
   Bus,
+  Train,
   Camera,
-  Tent,
-  ShieldCheck,
-  Users,
-  Coffee,
-  Luggage,
-  Ticket,
+  UserCheck,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
-const iconMap = {
-  hotel: Hotel,
-  meals: UtensilsCrossed,
-  transport: Bus,
-  sightseeing: Camera,
-  camp: Tent,
-  safari: ShieldCheck,
-  manager: Users,
-  welcome: Coffee,
-  luggage: Luggage,
-  ticket: Ticket,
+const icons = {
+  Hotel: Hotel,
+  Meals: UtensilsCrossed,
+  Transport: Bus,
+  Train: Train,
+  Sightseeing: Camera,
+  Coordinator: UserCheck,
 };
 
-const TourIncludes = ({ includes = [] }) => {
+const TourIncludes = ({ includes = [], highlights = [] }) => {
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleHighlights = showAll
+    ? highlights
+    : highlights.slice(0, 6);
+
   return (
-    <section className="bg-white rounded-2xl shadow-lg p-6 mt-8">
+    <section className="bg-white rounded-3xl shadow-lg border border-gray-200 overflow-hidden mt-10">
 
-      <div className="flex items-center gap-3 mb-6">
+      <div className="grid lg:grid-cols-2">
 
-        <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-          <ShieldCheck className="text-green-600" size={28} />
-        </div>
+        {/* LEFT */}
 
-        <div>
-          <h2 className="text-2xl font-bold text-blue-700">
+        <div className="p-8 border-r">
+
+          <h2 className="text-2xl font-bold text-[#0078AA] mb-8">
             Tour Includes
           </h2>
 
-          <p className="text-gray-500 text-sm">
-            Everything included in your package
-          </p>
+          <div className="grid grid-cols-3 gap-5">
+
+            {includes.map((item, index) => {
+
+              const Icon =
+                icons[item.icon] || Camera;
+
+              return (
+
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-center p-4 rounded-2xl hover:bg-blue-50 transition"
+                >
+
+                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-3">
+
+                    <Icon
+                      size={28}
+                      className="text-[#0078AA]"
+                    />
+
+                  </div>
+
+                  <p className="font-medium text-gray-700">
+                    {item.title}
+                  </p>
+
+                </div>
+
+              );
+            })}
+
+          </div>
+
         </div>
 
-      </div>
+        {/* RIGHT */}
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="p-8">
 
-        {includes.map((item, index) => {
-          const Icon = iconMap[item.icon] || ShieldCheck;
+          <h2 className="text-2xl font-bold text-[#0078AA] mb-6">
+            Tour Highlights
+          </h2>
 
-          return (
-            <div
-              key={index}
-              className="group border border-gray-200 rounded-2xl p-5 hover:border-green-500 hover:shadow-lg transition duration-300 bg-white"
+          <ul className="space-y-3">
+
+            {visibleHighlights.map((item, index) => (
+
+              <li
+                key={index}
+                className="flex items-start gap-3"
+              >
+
+                <span className="text-green-600 mt-1">
+                  ●
+                </span>
+
+                <span className="text-gray-700">
+                  {item.title}
+                </span>
+
+              </li>
+
+            ))}
+
+          </ul>
+
+          {highlights.length > 6 && (
+
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="mt-8 px-6 py-3 rounded-xl border-2 border-[#0078AA] text-[#0078AA] font-semibold hover:bg-[#0078AA] hover:text-white transition flex items-center gap-2"
             >
 
-              <div className="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center mb-4 group-hover:bg-green-100 transition">
+              {showAll ? (
+                <>
+                  Show Less
+                  <ChevronUp size={18} />
+                </>
+              ) : (
+                <>
+                  View More
+                  <ChevronDown size={18} />
+                </>
+              )}
 
-                <Icon
-                  size={28}
-                  className="text-green-600"
-                />
+            </button>
 
-              </div>
+          )}
 
-              <h3 className="font-semibold text-lg text-gray-800">
-                {item.title}
-              </h3>
-
-              <p className="text-sm text-gray-500 mt-2">
-                {item.description}
-              </p>
-
-            </div>
-          );
-        })}
+        </div>
 
       </div>
 

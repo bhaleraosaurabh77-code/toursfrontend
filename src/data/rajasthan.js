@@ -176,7 +176,8 @@
 // export default rajasthan;
 
 
-import heroImage from "../assets/bg.jpg";
+const heroImage =
+  "https://res.cloudinary.com/dt0mm3yj1/image/upload/v1766751427/Rajasthan_zgmyyl.jpg";
 
 const rajasthan = {
   id: 1,
@@ -201,12 +202,32 @@ const rajasthan = {
 
   nextDeparture: "06 Sept 2026",
 
-  tourIncludes: [
-    "Hotel",
-    "Meals",
-    "Transport",
-    "Sightseeing"
-  ],
+ includes: [
+  {
+    title: "Hotel",
+    icon: "Hotel",
+  },
+  {
+    title: "Meals",
+    icon: "Meals",
+  },
+  {
+    title: "Train",
+    icon: "Train",
+  },
+  {
+    title: "Transport",
+    icon: "Transport",
+  },
+  {
+    title: "Sightseeing",
+    icon: "Sightseeing",
+  },
+  {
+    title: "Coordinator",
+    icon: "Coordinator",
+  },
+],
 
   // ⭐ Tour Highlights
   highlights: [
@@ -387,6 +408,206 @@ const rajasthan = {
       meals: [],
       stay: "-"
     }
+  ],
+
+  tourInformation: {
+
+  transportation: [
+    "Railway Journey in Sleeper Class Non-AC / AC 3 Tier (as selected) from Pune to Pune.",
+    "Comfortable AC / Non-AC Bus, Tempo Traveller or Mini Bus depending on group size."
+  ],
+
+  accommodation: [
+    "Hotels on sharing basis as selected while booking.",
+    "One night Desert Camp stay in Jaisalmer."
+  ],
+
+  meals: [
+    "Breakfast & Dinner as mentioned in itinerary.",
+    "No meals during train journey.",
+    "Meals served at hotel or enroute as per itinerary."
+  ],
+
+  includes: [
+    "Railway journey from Pune to Pune.",
+    "Hotel accommodation.",
+    "Desert Camp stay.",
+    "Breakfast & Dinner.",
+    "All sightseeing as per itinerary.",
+    "Entry charges included.",
+    "Music Night.",
+    "Desert Jeep Safari.",
+    "Team Building Activities.",
+    "Experienced Tour Coordinators.",
+    "Security arrangements.",
+    "Bag Tags for all participants."
+  ],
+
+  excludes: [
+    "Meals during onward and return train journey.",
+    "Room upgrades.",
+    "Adventure activity charges.",
+    "Personal expenses.",
+    "Laundry.",
+    "Room Service.",
+    "Telephone charges.",
+    "Professional camera charges.",
+    "Accommodation not mentioned.",
+    "Sightseeing not mentioned.",
+    "Anything not mentioned under Includes."
+  ]
+
+},
+needToKnow: {
+
+  thingsToCarry: [
+
+    "Original Government Photo ID",
+
+    "College / School ID Card",
+
+    "Sports Shoes",
+
+    "Comfortable Clothes",
+
+    "Cap / Hat",
+
+    "Sunglasses",
+
+    "Sunscreen Lotion",
+
+    "Water Bottle",
+
+    "Mobile Charger",
+
+    "Personal Medicines"
+
+  ],
+
+  documents: [
+
+    "Original Aadhaar Card",
+
+    "Student ID",
+
+    "Booking Confirmation"
+
+  ],
+
+  weather:
+
+  "September to February offers pleasant weather with warm days and cool nights. Carry a light jacket for evenings.",
+
+  notes: [
+
+    "Follow Tour Manager Instructions.",
+
+    "Reach station before reporting time.",
+
+    "Respect local culture.",
+
+    "Keep valuables safely.",
+
+    "Do not litter tourist places."
+
+  ]
+
+},
+policies: {
+
+  payment: [
+
+    "30% advance payment is mandatory for booking confirmation.",
+
+    "Remaining balance must be paid 30 days before departure.",
+
+    "Payments accepted via UPI, NEFT, RTGS, IMPS, Debit/Credit Card."
+
+  ],
+
+  cancellation: [
+
+    "30+ Days : Booking amount deduction only.",
+
+    "15–29 Days : 50% cancellation charges.",
+
+    "7–14 Days : 75% cancellation charges.",
+
+    "Less than 7 Days : No Refund."
+
+  ]
+
+},
+faq: [
+
+  {
+
+    question:
+      "Is train ticket included?",
+
+    answer:
+      "Yes. Sleeper or AC ticket is included depending upon your selected package."
+
+  },
+
+  {
+
+    question:
+      "Are sightseeing entry tickets included?",
+
+    answer:
+      "Yes. All sightseeing mentioned in the itinerary is included."
+
+  },
+
+  {
+
+    question:
+      "Do you provide Tour Coordinators?",
+
+    answer:
+      "Yes. Experienced Tour Coordinators travel with every group."
+
+  },
+
+  {
+
+    question:
+      "Can solo travellers join?",
+
+    answer:
+      "Yes. Solo travellers are welcome."
+
+  },
+
+  {
+
+    question:
+      "Will hotels be AC?",
+
+    answer:
+      "Yes. Comfortable hotels are provided according to the selected package."
+
+  },
+
+  {
+
+    question:
+      "Is Desert Camp included?",
+
+    answer:
+      "Yes. One night Desert Camp stay with cultural program is included."
+
+  }
+
+],
+    quickIncludes: [
+  { title: "Hotel", icon: "Hotel" },
+  { title: "Meals", icon: "Meals" },
+  { title: "Train", icon: "Train" },
+  { title: "Transport", icon: "Transport" },
+  { title: "Sightseeing", icon: "Sightseeing" },
+  { title: "Coordinator", icon: "Coordinator" },
   ],
 };
 

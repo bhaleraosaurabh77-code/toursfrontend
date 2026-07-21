@@ -143,9 +143,9 @@ import { Star, Clock, MapPin, Users } from "lucide-react";
 
 import rajasthan from "../data/rajasthan";
 import kerala from "../data/kerala";
-
+import TourQuickInfo from "../components/tour/TourQuickInfo";
 import Overview from "../components/tour/Overview";
-import TourHighlights from "../components/tour/TourHighlights";
+import TourTabs from "../components/tour/TourTabs";
 import DepartureDates from "../components/tour/DepartureDates";
 import Itinerary from "../components/tour/Itinerary";
 import BookingCard from "../components/tour/BookingCard";
@@ -244,18 +244,17 @@ const TourDetails = () => {
 
             <Overview tour={tour} />
 
-            <TourHighlights
-              highlights={tour.highlights}
-            />
+               <TourQuickInfo
+               includes={tour.quickIncludes}
+               highlights={tour.highlights}
+/>
 
             <DepartureDates
               departures={tour.departures}
               onSelect={setSelectedDeparture}
             />
 
-            <Itinerary
-              itinerary={tour.itinerary}
-            />
+            <TourTabs tour={tour} />
 
           </div>
 
@@ -279,3 +278,4 @@ const TourDetails = () => {
 };
 
 export default TourDetails;
+
