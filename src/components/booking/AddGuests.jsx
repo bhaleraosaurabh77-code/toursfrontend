@@ -869,7 +869,7 @@
 
 
 import React, { useEffect, useState } from "react";
-import { calculatePricing } from "../utils/pricingEngine";
+import { calculatePricing } from "../../utils/pricingEngine";
 
 const AddGuests = ({ bookingData, setBookingData }) => {
   const [adults, setAdults] = useState(bookingData?.adults || 1);

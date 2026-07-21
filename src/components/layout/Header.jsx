@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Menu, X, Phone, MapPin, Heart } from "lucide-react"; // removed User import
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 export default function Header() {
   const navigate = useNavigate();

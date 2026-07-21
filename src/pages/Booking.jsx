@@ -148,9 +148,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import Stepper from "../components/booking/Stepper";
-import AddGuests from "../components/AddGuests";
-import TrainSelection from "../components/TrainSelection";
-import BookingSummary from "../components/BookingSummary";
+import AddGuests from "../components/booking/AddGuests";
+import TrainSelection from "../components/booking/TrainSelection";
+import BookingSummary from "../components/booking/BookingSummary";
 
 import { calculatePricing } from "../utils/pricingEngine";
 

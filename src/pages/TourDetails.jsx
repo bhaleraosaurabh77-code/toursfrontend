@@ -144,12 +144,11 @@ import { Star, Clock, MapPin, Users } from "lucide-react";
 import rajasthan from "../data/rajasthan";
 import kerala from "../data/kerala";
 
-import Overview from "../components/Overview";
-import TourHighlights from "../components/TourHighlights";
-import DepartureDates from "../components/DepartureDates";
-import Itinerary from "../components/Itinerary";
-import BookingCard from "../components/BookingCard";
-
+import Overview from "../components/tour/Overview";
+import TourHighlights from "../components/tour/TourHighlights";
+import DepartureDates from "../components/tour/DepartureDates";
+import Itinerary from "../components/tour/Itinerary";
+import BookingCard from "../components/tour/BookingCard";
 const TourDetails = () => {
   const { id } = useParams();
 

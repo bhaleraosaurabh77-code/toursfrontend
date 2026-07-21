@@ -13,7 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 // ✅ Import your educational visit image properly
-import educationalImg from "../assets/educational.png";
+import educationalImg from "../../assets/educational.png";
 
 const categories = [
 

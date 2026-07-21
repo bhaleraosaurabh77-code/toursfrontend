@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import itineraryPDF from "../assets/itineraries/rajasthan-itinerary.pdf";
+import itineraryPDF from "../../assets/itineraries/rajasthan-itinerary.pdf";
 
 const DownloadItineraryModal = ({
   open,

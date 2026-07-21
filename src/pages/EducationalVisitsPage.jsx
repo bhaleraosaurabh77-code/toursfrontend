@@ -1,7 +1,8 @@
-// pages/EducationalVisitsPage.jsx
+// src/pages/EducationalVisitsPage.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
-import TourPackages from "../components/TourPackages";
+import EducationalVisits from "../components/EducationalVisits";
 
 /* Gallery Card Component */
 const GalleryCard = ({ type, src, caption }) => (
@@ -19,6 +20,7 @@ const GalleryCard = ({ type, src, caption }) => (
         className="w-full h-56 object-cover"
       />
     )}
+
     <div className="p-4">
       <p className="text-gray-700 text-sm font-medium text-center">
         {caption}
@@ -33,42 +35,48 @@ export default function EducationalVisitsPage() {
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-[#0078AA] to-[#00A8E8] text-white py-20 overflow-hidden">
+
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.toptal.com/designers/subtlepatterns/uploads/dots.png')]"></div>
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center animate-fadeIn">
-          <h1 className="text-4xl font-bold tracking-tight drop-shadow-lg">
+        <div className="relative max-w-7xl mx-auto px-6 text-center">
+
+          <h1 className="text-4xl font-bold tracking-tight">
             Educational & Industrial Visits
           </h1>
-          <p className="mt-3 text-lg opacity-90 font-light">
-            Curated industry-focused experiences for schools, colleges & institutions
+
+          <p className="mt-3 text-lg opacity-90">
+            Curated industry-focused experiences for schools, colleges & institutions.
           </p>
 
           <Link
             to="/"
-            className="inline-block mt-6 px-6 py-2 bg-white text-[#0078AA] font-medium rounded-xl shadow hover:bg-gray-100 transition"
+            className="inline-block mt-6 px-6 py-3 bg-white text-[#0078AA] font-semibold rounded-xl shadow hover:bg-gray-100 transition"
           >
             ← Back to Home
           </Link>
+
         </div>
+
       </div>
 
-      {/* Content Section */}
-      <main className="max-w-7xl mx-auto px-6 py-12 animate-fadeInSlow">
-        <h2 className="text-2xl font-semibold text-[#2A2A2A] mb-4">
+      {/* Packages */}
+      <main className="max-w-7xl mx-auto px-6 py-12">
+
+        <h2 className="text-3xl font-bold text-[#0078AA] mb-3">
           Explore Our Student Packages
         </h2>
+
         <p className="text-gray-600 mb-10">
-          Handpicked itineraries designed especially for student groups, focusing on
-          knowledge, fun, and exposure to real-world industry practices.
+          Handpicked itineraries specially designed for schools and colleges,
+          combining education, industrial exposure and unforgettable travel experiences.
         </p>
 
-        <div className="mt-6">
-          <TourPackages onlyCategory="students" />
-        </div>
+        <EducationalVisits onlyCategory="students" />
 
-        {/* ===== PHOTO & VIDEO GALLERY ===== */}
+        {/* Gallery */}
         <section className="mt-20">
-          <h2 className="text-2xl font-semibold text-[#2A2A2A] mb-6">
+
+          <h2 className="text-3xl font-bold text-[#0078AA] mb-8">
             Educational & Industrial Visit Gallery
           </h2>
 
@@ -117,11 +125,11 @@ export default function EducationalVisitsPage() {
             />
 
           </div>
+
         </section>
-        {/* ===== END GALLERY ===== */}
 
       </main>
+
     </div>
   );
 }
-
