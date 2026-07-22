@@ -21,21 +21,20 @@ const faqs = [
 
 const FAQTab = () => {
   return (
-
-    <div className="space-y-5">
+    <div className="space-y-4 sm:space-y-5">
 
       {faqs.map((faq, index) => (
 
         <div
           key={index}
-          className="bg-white rounded-2xl shadow-md p-6"
+          className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 hover:shadow-lg transition duration-300"
         >
 
-          <h3 className="font-bold text-lg text-[#0078AA]">
+          <h3 className="text-base sm:text-lg font-bold text-[#0078AA] leading-snug">
             {faq.q}
           </h3>
 
-          <p className="text-gray-600 mt-2">
+          <p className="mt-2 text-sm sm:text-base text-gray-600 leading-7">
             {faq.a}
           </p>
 
@@ -44,7 +43,6 @@ const FAQTab = () => {
       ))}
 
     </div>
-
   );
 };
 

@@ -117,48 +117,48 @@ const TourIncludes = ({ includes = [], highlights = [] }) => {
     : highlights.slice(0, 6);
 
   return (
-    <section className="bg-white rounded-3xl shadow-lg border border-gray-200 overflow-hidden mt-10">
+    <section className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-gray-200 overflow-hidden mt-8 sm:mt-10">
 
-      <div className="grid lg:grid-cols-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
 
         {/* LEFT */}
 
-        <div className="p-8 border-r">
+        <div className="p-5 sm:p-6 lg:p-8 border-b lg:border-b-0 lg:border-r">
 
-          <h2 className="text-2xl font-bold text-[#0078AA] mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0078AA] mb-6 sm:mb-8">
             Tour Includes
           </h2>
 
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
 
             {includes.map((item, index) => {
 
-              const Icon =
-                icons[item.icon] || Camera;
+              const Icon = icons[item.icon] || Camera;
 
               return (
 
                 <div
                   key={index}
-                  className="flex flex-col items-center text-center p-4 rounded-2xl hover:bg-blue-50 transition"
+                  className="flex flex-col items-center text-center p-3 sm:p-4 rounded-2xl hover:bg-blue-50 transition"
                 >
 
-                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-100 flex items-center justify-center mb-3">
 
                     <Icon
-                      size={28}
-                      className="text-[#0078AA]"
+                      size={24}
+                      className="text-[#0078AA] sm:w-7 sm:h-7"
                     />
 
                   </div>
 
-                  <p className="font-medium text-gray-700">
+                  <p className="text-sm sm:text-base font-medium text-gray-700">
                     {item.title}
                   </p>
 
                 </div>
 
               );
+
             })}
 
           </div>
@@ -167,9 +167,9 @@ const TourIncludes = ({ includes = [], highlights = [] }) => {
 
         {/* RIGHT */}
 
-        <div className="p-8">
+        <div className="p-5 sm:p-6 lg:p-8">
 
-          <h2 className="text-2xl font-bold text-[#0078AA] mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0078AA] mb-6">
             Tour Highlights
           </h2>
 
@@ -182,11 +182,11 @@ const TourIncludes = ({ includes = [], highlights = [] }) => {
                 className="flex items-start gap-3"
               >
 
-                <span className="text-green-600 mt-1">
+                <span className="text-green-600 mt-1 flex-shrink-0">
                   ●
                 </span>
 
-                <span className="text-gray-700">
+                <span className="text-sm sm:text-base text-gray-700 leading-6">
                   {item.title}
                 </span>
 
@@ -200,7 +200,7 @@ const TourIncludes = ({ includes = [], highlights = [] }) => {
 
             <button
               onClick={() => setShowAll(!showAll)}
-              className="mt-8 px-6 py-3 rounded-xl border-2 border-[#0078AA] text-[#0078AA] font-semibold hover:bg-[#0078AA] hover:text-white transition flex items-center gap-2"
+              className="mt-6 sm:mt-8 w-full sm:w-auto px-6 py-3 rounded-xl border-2 border-[#0078AA] text-[#0078AA] font-semibold hover:bg-[#0078AA] hover:text-white transition flex items-center justify-center gap-2"
             >
 
               {showAll ? (

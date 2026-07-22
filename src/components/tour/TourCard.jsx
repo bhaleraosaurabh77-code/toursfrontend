@@ -14,10 +14,10 @@ const TourCard = ({
   badge = "Best Seller",
 }) => {
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200">
+    <div className="group w-full bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 hover:-translate-y-1">
 
       {/* Image */}
-      <div className="relative overflow-hidden h-64">
+      <div className="relative overflow-hidden h-52 sm:h-60 lg:h-64">
 
         <img
           src={image}
@@ -26,33 +26,33 @@ const TourCard = ({
         />
 
         {/* Badge */}
-        <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
+        <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs sm:text-sm px-3 py-1 rounded-full font-semibold shadow">
           🔥 {badge}
         </div>
 
         {/* Rating */}
-        <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+        <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow">
           ⭐ {rating}
         </div>
-
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 sm:p-6">
 
-        <h3 className="text-xl font-bold text-gray-800">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800">
           {title}
         </h3>
 
-        <p className="text-gray-500 mt-2 text-sm">
+        <p className="text-gray-500 mt-3 text-sm sm:text-base leading-6">
           📍 {places}
         </p>
 
-        <p className="text-gray-600 mt-3">
+        <p className="text-gray-600 mt-3 text-sm sm:text-base">
           🕒 {duration}
         </p>
 
-        <div className="flex justify-between mt-4">
+        {/* Seats & Departure */}
+        <div className="flex justify-between items-center mt-5 text-sm sm:text-base">
 
           <span className="text-green-600 font-semibold">
             👥 {seats} Seats
@@ -64,41 +64,41 @@ const TourCard = ({
 
         </div>
 
-        <div className="mt-5">
+        {/* Price */}
+        <div className="mt-6">
 
-          <p className="text-sm text-gray-500">
+          <p className="text-gray-500 text-sm">
             Starting From
           </p>
 
-          <h2 className="text-3xl font-bold text-blue-700">
+          <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mt-1">
             {price}
           </h2>
 
         </div>
 
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 mt-6">
 
-  <div className="grid grid-cols-2 gap-3 mt-6">
+          <Link
+            to={`/tour/${id}`}
+            className="w-full flex items-center justify-center border-2 border-blue-700 text-blue-700 py-3 rounded-xl font-semibold hover:bg-blue-700 hover:text-white transition"
+          >
+            View Details
+          </Link>
 
-  <Link to={`/tour/${id}`}
-    className="flex items-center justify-center border-2 border-blue-700 text-blue-700 py-3 rounded-xl font-semibold hover:bg-blue-700 hover:text-white transition"
-  >
-    View Details
-  </Link>
+          <Link
+            to="/booking"
+            className="w-full flex items-center justify-center bg-blue-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-800 transition"
+          >
+            Book Online
+          </Link>
 
-  <Link
-    to="/booking"
-    className="flex items-center justify-center bg-blue-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-800 rounded-xl transition"
-  >
-    Book Online
-  </Link>
+        </div>
 
-</div>
+      </div>
 
-</div>
-
-</div>
-
-
+    </div>
   );
 };
 

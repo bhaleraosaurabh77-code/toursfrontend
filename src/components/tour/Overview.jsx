@@ -10,74 +10,138 @@ import {
 
 const Overview = ({ tour }) => {
   return (
-    <section className="bg-white rounded-2xl shadow-md p-8">
+    <section className="bg-white rounded-2xl shadow-md p-5 sm:p-6 lg:p-8">
 
-      <h2 className="text-3xl font-bold text-blue-700 mb-6">
+      {/* Heading */}
+
+      <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">
         Tour Overview
       </h2>
 
-      <p className="text-gray-600 leading-8">
+      {/* Description */}
+
+      <p className="text-gray-600 leading-7 sm:leading-8 text-sm sm:text-base">
         Experience an unforgettable journey through{" "}
         <span className="font-semibold">{tour.state}</span> with our{" "}
         <span className="font-semibold">{tour.title}</span> package.
       </p>
 
-      <div className="grid md:grid-cols-4 gap-5 mt-8">
+      {/* Tour Highlights */}
 
-        <div className="bg-blue-50 rounded-xl p-5 text-center">
-          <Clock className="mx-auto text-blue-700" />
-          <p className="mt-3 font-semibold">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-8">
+
+        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+
+          <Clock
+            className="mx-auto text-blue-700"
+            size={30}
+          />
+
+          <p className="mt-3 font-semibold text-sm sm:text-base">
             {tour.duration}
           </p>
+
         </div>
 
-        <div className="bg-blue-50 rounded-xl p-5 text-center">
-          <MapPin className="mx-auto text-blue-700" />
-          <p className="mt-3 font-semibold">
+        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+
+          <MapPin
+            className="mx-auto text-blue-700"
+            size={30}
+          />
+
+          <p className="mt-3 font-semibold text-sm sm:text-base">
             {tour.cities} Cities
           </p>
+
         </div>
 
-        <div className="bg-blue-50 rounded-xl p-5 text-center">
-          <Hotel className="mx-auto text-blue-700" />
-          <p className="mt-3 font-semibold">
+        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+
+          <Hotel
+            className="mx-auto text-blue-700"
+            size={30}
+          />
+
+          <p className="mt-3 font-semibold text-sm sm:text-base">
             Hotel Stay
           </p>
+
         </div>
 
-        <div className="bg-blue-50 rounded-xl p-5 text-center">
-          <Bus className="mx-auto text-blue-700" />
-          <p className="mt-3 font-semibold">
+        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+
+          <Bus
+            className="mx-auto text-blue-700"
+            size={30}
+          />
+
+          <p className="mt-3 font-semibold text-sm sm:text-base">
             Transport Included
           </p>
+
         </div>
 
       </div>
 
-      <h3 className="text-2xl font-bold mt-10 mb-5">
+      {/* Includes */}
+
+      <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-5">
         Tour Includes
       </h3>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
 
-        <div className="bg-green-50 rounded-xl p-4 flex items-center gap-3">
-          <Hotel className="text-green-600" />
-          Hotel
+        <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
+
+          <Hotel
+            className="text-green-600"
+            size={24}
+          />
+
+          <span className="font-medium text-sm sm:text-base">
+            Hotel
+          </span>
+
         </div>
 
-        <div className="bg-green-50 rounded-xl p-4 flex items-center gap-3">
-          <Utensils className="text-green-600" />
-          Meals
+        <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
+
+          <Utensils
+            className="text-green-600"
+            size={24}
+          />
+
+          <span className="font-medium text-sm sm:text-base">
+            Meals
+          </span>
+
         </div>
 
-        <div className="bg-green-50 rounded-xl p-4 flex items-center gap-3">
-          <Bus className="text-green-600" />
-          Transport
+        <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
+
+          <Bus
+            className="text-green-600"
+            size={24}
+          />
+
+          <span className="font-medium text-sm sm:text-base">
+            Transport
+          </span>
+
         </div>
 
-        <div className="bg-green-50 rounded-xl p-4 flex items-center gap-3">
-          <Camera className="text-green-600" />
-          Sightseeing
+        <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
+
+          <Camera
+            className="text-green-600"
+            size={24}
+          />
+
+          <span className="font-medium text-sm sm:text-base">
+            Sightseeing
+          </span>
+
         </div>
 
       </div>

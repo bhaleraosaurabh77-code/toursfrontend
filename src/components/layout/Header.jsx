@@ -15,7 +15,7 @@ export default function Header() {
     { name: "Home", href: "#home" },
     { name: "Packages", href: "#packages" },
     { name: "Gallery", href: "#gallery" },
-    { name: "About", href: " #about" }
+    { name: "About", href: "#about" }
   ];
 
   const handleScroll = (href) => {

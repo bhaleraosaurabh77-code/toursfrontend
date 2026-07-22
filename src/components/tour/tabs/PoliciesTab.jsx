@@ -2,16 +2,15 @@ import React from "react";
 
 const PoliciesTab = () => {
   return (
+    <div className="space-y-5 sm:space-y-6">
 
-    <div className="space-y-6">
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
 
-      <div className="bg-white rounded-2xl shadow-lg p-8">
-
-        <h2 className="text-2xl font-bold text-[#0078AA] mb-5">
+        <h2 className="text-xl sm:text-2xl font-bold text-[#0078AA] mb-4 sm:mb-5">
           Payment Policy
         </h2>
 
-        <ul className="space-y-3 text-gray-600">
+        <ul className="space-y-3 text-sm sm:text-base text-gray-600">
 
           <li>• 30% advance to confirm booking.</li>
 
@@ -23,13 +22,13 @@ const PoliciesTab = () => {
 
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
 
-        <h2 className="text-2xl font-bold text-[#0078AA] mb-5">
+        <h2 className="text-xl sm:text-2xl font-bold text-[#0078AA] mb-4 sm:mb-5">
           Cancellation Policy
         </h2>
 
-        <ul className="space-y-3 text-gray-600">
+        <ul className="space-y-3 text-sm sm:text-base text-gray-600">
 
           <li>• 30+ days : Minimal charges</li>
 
@@ -42,7 +41,6 @@ const PoliciesTab = () => {
       </div>
 
     </div>
-
   );
 };
 

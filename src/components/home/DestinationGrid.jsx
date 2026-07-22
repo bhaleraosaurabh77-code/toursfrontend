@@ -1,82 +1,6 @@
-// import React from "react";
-
-// export default function DestinationGrid() {
-//   // Demo place names (YOU can change later)
-//   const places = [
-//     "LEH LADAKH",
-//     "NORTH-EAST INDIA",
-//     "OFFBEAT HIMACHAL",
-//     "ANDAMAN ISLANDS",
-//     "RAJASTHAN",
-//     "KERALA",
-//     "KASHMIR",
-//     "GOA",
-//     "UTTARAKHAND",
-//     "SIKKIM",
-//   ];
-
-//   // Image filenames (must exist in src/assets)
-//   const filenames = [
-//     "image1.jpg",
-//     "jail.jpg",
-//     "image3.jpg",
-//     "hhok.jpg",
-//     "kerala.jpg",
-//     "houseboat-Copy.jpg",
-//     "lake.jpg",
-//     "ganapatipule-beach.jpg",
-//     "Sonmarg_Kashmir.jpg",
-//     "GettyImages-2171354215.webp",
-//   ];
-
-//   const destinations = filenames.map((name, i) => ({
-//     id: i,
-//     image: new URL(`../assets/${name}`, import.meta.url).href,
-//     title: places[i] || "DESTINATION",
-//   }));
-
-//   return (
-//     <div className="bg-gray-50 py-10 px-6">
-//       <div className="max-w-7xl mx-auto">
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//           {destinations.map((item) => (
-//             <div
-//               key={item.id}
-//               className="overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
-//             >
-//               {/* Image */}
-//               <div className="h-56 w-full overflow-hidden">
-//                 <img
-//                   src={item.image}
-//                   alt={item.title}
-//                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-//                   loading="lazy"
-//                   onError={(e) => {
-//                     e.currentTarget.src =
-//                       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23e5e7eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-size='20'>Image not found</text></svg>";
-//                   }}
-//                 />
-//               </div>
-
-//               {/* Title bar (like screenshot) */}
-//               <div className="bg-white py-4 text-center border-t">
-//                 <h3 className="text-lg font-bold text-[#0B3C5D] tracking-wide">
-//                   {item.title}
-//                 </h3>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 import React from "react";
 
 export default function DestinationGrid() {
-  // Demo place names (you can change later)
   const destinations = [
     {
       title: "UTTARAKHAND",
@@ -126,37 +50,69 @@ export default function DestinationGrid() {
   ];
 
   return (
-    <div className="bg-gray-50 py-12 px-6">
+    <section className="bg-gray-50 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+
       <div className="max-w-7xl mx-auto">
+
+        {/* Heading */}
+
+        <div className="text-center mb-10">
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0078AA]">
+            Popular Destinations
+          </h2>
+
+          <div className="w-20 h-1 bg-[#0078AA] rounded-full mx-auto mt-4 mb-5" />
+
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+            Explore India's most loved destinations with comfortable,
+            well-planned and memorable travel experiences.
+          </p>
+
+        </div>
+
+        {/* Grid */}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
           {destinations.map((item, index) => (
+
             <div
               key={index}
-              className="overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="group overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
             >
+
               {/* Image */}
-              <div className="h-56 w-full overflow-hidden">
+
+              <div className="h-56 sm:h-60 overflow-hidden">
+
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+
               </div>
 
-              {/* White title bar (like screenshot) */}
-              <div className="bg-white py-4 text-center border-t">
-                <h3 className="text-lg font-bold text-[#0B3C5D] tracking-wide">
+              {/* Title */}
+
+              <div className="bg-white border-t px-4 py-5 text-center">
+
+                <h3 className="text-lg sm:text-xl font-bold text-[#0B3C5D] tracking-wide">
                   {item.title}
                 </h3>
+
               </div>
+
             </div>
+
           ))}
+
         </div>
+
       </div>
-    </div>
+
+    </section>
   );
 }
-
-
-
