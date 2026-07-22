@@ -71,7 +71,7 @@ const TourCard = ({
             Starting From
           </p>
 
-          <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mt-1">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0078AA] mt-1">
             {price}
           </h2>
 
@@ -82,15 +82,13 @@ const TourCard = ({
 
           <Link
             to={`/tour/${id}`}
-            className="w-full flex items-center justify-center border-2 border-blue-700 text-blue-700 py-3 rounded-xl font-semibold hover:bg-blue-700 hover:text-white transition"
-          >
+           className="w-full flex items-center justify-center border-2 border-[#0078AA] text-[#0078AA] py-3 rounded-xl font-semibold hover:bg-[#0078AA] hover:text-white transition">
             View Details
           </Link>
 
           <Link
             to="/booking"
-            className="w-full flex items-center justify-center bg-blue-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-800 transition"
-          >
+            className="w-full flex items-center justify-center bg-[#0078AA] text-white py-3 rounded-xl font-semibold shadow-md hover:bg-[#00658F] hover:shadow-lg transition-all duration-300">
             Book Online
           </Link>
 

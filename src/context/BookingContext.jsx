@@ -3,35 +3,47 @@ import { createContext, useContext, useState } from "react";
 const BookingContext = createContext();
 
 export const BookingProvider = ({ children }) => {
- const [booking, setBooking] = useState({
-  tour: null,
+  const [booking, setBooking] = useState({
+    // ---------------- Tour ----------------
+    tour: null,
 
-  departure: null,
+    departure: null,
 
-  guests: {
-    adults: 1,
-    children: 0,
-    infants: 0,
-  },
+    // ---------------- Traveller ----------------
+    traveller: {
+      name: "",
+      mobile: "",
+      verified: false,
+    },
 
-  room: {
-    type: "Quad Sharing",
-    multiplier: 1,
-  },
+    // ---------------- Guests ----------------
+    guests: {
+      adults: 1,
+      children: 0,
+      infants: 0,
+    },
 
-  train: {
-    type: "Sleeper",
-    extra: 0,
-  },
+    // ---------------- Room ----------------
+    room: {
+      type: "Quad Sharing",
+      multiplier: 1,
+    },
 
-  basePrice: 0,
+    // ---------------- Train ----------------
+    train: {
+      type: "Sleeper",
+      extra: 0,
+    },
 
-  totalPrice: 0,
+    // ---------------- Pricing ----------------
+    basePrice: 0,
 
-  advance: 0,
+    totalPrice: 0,
 
-  balance: 0,
-});
+    advance: 0,
+
+    balance: 0,
+  });
 
   return (
     <BookingContext.Provider

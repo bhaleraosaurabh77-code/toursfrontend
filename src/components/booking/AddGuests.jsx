@@ -65,7 +65,7 @@ const AddGuests = ({ bookingData, setBookingData }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mt-8">
 
-      <h2 className="text-xl sm:text-2xl font-bold text-blue-700 mb-6">
+      <h2 className="text-xl sm:text-2xl font-bold text-[#0078AA] mb-6">
         Add Guests
       </h2>
 
@@ -96,13 +96,13 @@ const AddGuests = ({ bookingData, setBookingData }) => {
         </p>
       </div>
 
-      <div className="mt-6 bg-blue-50 rounded-xl p-4 flex justify-between items-center">
+      <div className="mt-6 bg-[#EAF7FC] rounded-xl p-4 flex justify-between items-center">
 
         <span className="font-semibold">
           Total Guests
         </span>
 
-        <span className="font-bold text-blue-700">
+       <span className="font-bold text-[#0078AA]">
           {totalGuests} / 44
         </span>
 
@@ -130,7 +130,7 @@ const AddGuests = ({ bookingData, setBookingData }) => {
               Price Per Adult
             </p>
 
-            <h3 className="text-2xl font-bold text-blue-700">
+            <h3 className="text-2xl font-bold text-[#0078AA]">
               ₹{pricePerPerson.toLocaleString()}
             </h3>
 
@@ -214,7 +214,7 @@ function GuestRow({
           className={`w-11 h-11 rounded-full text-white text-xl transition ${
             disableAdd
               ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-700 hover:bg-blue-800"
+              : "bg-[#0078AA] hover:bg-[#00658F]"
           }`}
         >
           +

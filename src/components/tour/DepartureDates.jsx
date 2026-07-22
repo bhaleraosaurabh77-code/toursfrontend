@@ -126,27 +126,25 @@ function DateTile({
     <div
       onClick={() => onClick(departure)}
       className={`
-        relative
-        w-full
-        sm:w-[170px]
-        h-[165px]
-        flex-shrink-0
-        rounded-xl
-        border
-        overflow-hidden
-        transition-all
-        duration-200
-        cursor-pointer
-        flex
-        flex-col
-        ${
-          isLowest
-            ? "bg-emerald-600 border-emerald-600"
-            : isSelected
-            ? "border-blue-700 ring-2 ring-blue-700 shadow-md bg-white"
-            : "bg-white border-gray-200 hover:border-blue-400 hover:shadow-md"
-        }
-      `}
+  relative
+  w-full
+  min-h-[165px]
+  rounded-xl
+  border
+  overflow-hidden
+  transition-all
+  duration-200
+  cursor-pointer
+  flex
+  flex-col
+  ${
+    isLowest
+      ? "bg-emerald-600 border-emerald-600"
+      : isSelected
+      ? "border-blue-700 ring-2 ring-blue-700 shadow-md bg-white"
+      : "bg-white border-gray-200 hover:border-blue-400 hover:shadow-md"
+  }
+`}
     >
       <div
         className={`text-center pt-3 text-xs font-semibold tracking-widest uppercase ${
@@ -300,12 +298,11 @@ const DepartureDates = ({
         <div
           className="
             grid
-            grid-cols-1
-            sm:grid-cols-2
+            grid-cols-2
             md:grid-cols-3
             lg:grid-cols-4
             xl:grid-cols-5
-            gap-5
+            gap-4
           "
           key={refreshKey}
         >

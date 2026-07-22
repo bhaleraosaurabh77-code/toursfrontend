@@ -12,6 +12,8 @@ import EducationalVisitsPage from "./pages/EducationalVisitsPage";
 import TourDetails from "./pages/TourDetails";
 import Booking from "./pages/Booking";
 import TourCards from "./pages/TourCards";
+import LoginOTP from "./pages/LoginOTP";
+import ReviewBooking from "./pages/ReviewBooking";
 
 // Layout Components
 import Header from "./components/layout/Header";
@@ -100,9 +102,11 @@ function AppContent() {
   const location = useLocation();
 
   const hideHeader =
-    location.pathname.startsWith("/tour/") ||
-    location.pathname.startsWith("/booking") ||
-    location.pathname.startsWith("/admin");
+  location.pathname.startsWith("/tour/") ||
+  location.pathname.startsWith("/booking") ||
+  location.pathname.startsWith("/login") ||
+  location.pathname.startsWith("/review") ||
+  location.pathname.startsWith("/admin");
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-gray-800 antialiased">
@@ -136,6 +140,16 @@ function AppContent() {
           <Route
             path="/booking"
             element={<Booking />}
+          />
+
+          <Route
+            path="/login"
+            element={<LoginOTP />}
+          />
+
+          <Route
+            path="/review"
+            element={<ReviewBooking />}
           />
 
           <Route

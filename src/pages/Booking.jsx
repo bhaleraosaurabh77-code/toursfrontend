@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CalendarDays, ShieldCheck } from "lucide-react";
 
 import Stepper from "../components/booking/Stepper";
@@ -11,6 +11,8 @@ import { calculatePricing } from "../utils/pricingEngine";
 
 const Booking = () => {
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const selectedTour = location.state?.tour || null;
   const selectedDeparture = location.state?.departure || null;
@@ -163,44 +165,58 @@ const Booking = () => {
         </div>
 
         {/* Continue Button */}
-        <div className="mt-8">
 
-          <button
-            className="
-              w-full
-              lg:w-auto
-              lg:ml-auto
-              flex
-              items-center
-              justify-center
-              gap-3
-              bg-gradient-to-r
-              from-[#0078AA]
-              to-[#009FD4]
-              hover:from-[#00658f]
-              hover:to-[#0086c4]
-              text-white
-              px-8
-              py-4
-              rounded-2xl
-              font-semibold
-              text-base
-              sm:text-lg
-              shadow-lg
-              hover:shadow-xl
-              transition-all
-              duration-300
-            "
-          >
-            Continue to Traveller Details
-            <span className="text-xl">→</span>
-          </button>
+          <div className="mt-8 flex justify-end">
+
+  <button
+    onClick={() =>
+      navigate("/login", {
+        state: {
+          bookingData,
+          selectedTour,
+          selectedDeparture,
+        },
+      })
+    }
+    className="
+      w-full
+      lg:w-auto
+      flex
+      items-center
+      justify-center
+      gap-3
+      bg-gradient-to-r
+      from-[#0078AA]
+      to-[#009FD4]
+      hover:from-[#00658f]
+      hover:to-[#0086c4]
+      text-white
+      px-8
+      py-4
+      rounded-2xl
+      font-semibold
+      text-base
+      sm:text-lg
+      shadow-lg
+      hover:shadow-xl
+      transition-all
+      duration-300
+    "
+  >
+    Continue to Traveller Details
+
+    <span className="text-xl">
+      →
+    </span>
+
+  </button>
+
+</div>
 
         </div>
 
       </div>
 
-    </div>
   );
 };
 
