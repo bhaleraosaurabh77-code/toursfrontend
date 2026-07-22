@@ -184,7 +184,7 @@ const rajasthan = {
 
   title: "Royale Rajasthan",
 
-  subtitle: "Jaipur • Jodhpur • Jaisalmer • Udaipur",
+  subtitle: "Jaipur • Jodhpur • Jaisalmer",
 
   heroImage,
 
