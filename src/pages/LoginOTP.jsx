@@ -73,7 +73,7 @@ useEffect(() => {
   },
 });
 
-navigate("/review", {
+navigate("/traveller-details", {
   replace: true,
   state: {
     bookingData,

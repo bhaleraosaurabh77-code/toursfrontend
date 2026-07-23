@@ -13,6 +13,7 @@ import TourDetails from "./pages/TourDetails";
 import Booking from "./pages/Booking";
 import TourCards from "./pages/TourCards";
 import LoginOTP from "./pages/LoginOTP";
+import TravellerDetails from "./pages/TravellerDetails";
 import ReviewBooking from "./pages/ReviewBooking";
 
 // Layout Components
@@ -145,6 +146,11 @@ function AppContent() {
           <Route
             path="/login"
             element={<LoginOTP />}
+          />
+
+          <Route
+            path="/traveller-details"
+            element={<TravellerDetails />}
           />
 
           <Route

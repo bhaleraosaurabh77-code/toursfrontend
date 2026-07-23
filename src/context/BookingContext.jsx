@@ -9,12 +9,22 @@ export const BookingProvider = ({ children }) => {
 
     departure: null,
 
-    // ---------------- Traveller ----------------
+    // ---------------- Lead Traveller ----------------
     traveller: {
       name: "",
+      firstName: "",
+      lastName: "",
       mobile: "",
+      email: "",
+      gender: "",
+      dob: "",
+      nationality: "India",
+      state: "",
       verified: false,
     },
+
+    // ---------------- Co-Travellers ----------------
+    coTravellers: [],
 
     // ---------------- Guests ----------------
     guests: {

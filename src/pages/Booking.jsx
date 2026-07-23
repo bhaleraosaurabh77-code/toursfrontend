@@ -8,11 +8,13 @@ import TrainSelection from "../components/booking/TrainSelection";
 import BookingSummary from "../components/booking/BookingSummary";
 
 import { calculatePricing } from "../utils/pricingEngine";
+import { useBooking } from "../context/BookingContext";
 
 const Booking = () => {
   const location = useLocation();
-
   const navigate = useNavigate();
+
+  const { setBooking } = useBooking();
 
   const selectedTour = location.state?.tour || null;
   const selectedDeparture = location.state?.departure || null;
@@ -34,12 +36,16 @@ const Booking = () => {
   const [bookingData, setBookingData] = useState({
     tourName: selectedTour?.title || "Tour",
     departure: departureDate,
+
     adults: 1,
     children: 0,
+    infants: 0,
+
     basePrice: quadPrice,
     roomType: defaultPricing.roomType,
     pricePerPerson: defaultPricing.adultPrice,
     childPrice: defaultPricing.childPrice,
+
     train: "Sleeper Class",
     trainExtra: 0,
   });
@@ -67,12 +73,9 @@ const Booking = () => {
 
   return (
     <div className="min-h-screen bg-[#F7F9FC]">
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-        {/* Header */}
         <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-5 sm:p-6">
-
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
 
             <div>
@@ -86,7 +89,6 @@ const Booking = () => {
             </div>
 
             <div className="bg-[#F7F9FC] rounded-2xl px-4 py-4 border w-full lg:w-auto">
-
               <div className="flex items-center gap-2 text-[#0078AA] font-semibold text-sm sm:text-base">
                 <CalendarDays size={18} />
                 {bookingData.departure}
@@ -95,22 +97,17 @@ const Booking = () => {
               <h2 className="text-lg sm:text-xl font-bold mt-2">
                 {bookingData.tourName}
               </h2>
-
             </div>
 
           </div>
-
         </div>
 
-        {/* Stepper */}
         <div className="bg-white rounded-3xl shadow-sm border border-gray-200 mt-6 p-4 sm:p-5 overflow-x-auto">
           <Stepper currentStep={2} />
         </div>
 
-        {/* Main Layout */}
         <div className="grid grid-cols-1 xl:grid-cols-[1.8fr_420px] gap-8 mt-6">
 
-          {/* Left */}
           <div className="space-y-6">
 
             <AddGuests
@@ -130,7 +127,6 @@ const Booking = () => {
 
           </div>
 
-          {/* Right */}
           <div className="space-y-5 xl:sticky xl:top-6 self-start">
 
             <BookingSummary bookingData={bookingData} />
@@ -163,60 +159,97 @@ const Booking = () => {
           </div>
 
         </div>
+                {/* Continue Button */}
 
-        {/* Continue Button */}
+        <div className="mt-8 flex justify-end">
 
-          <div className="mt-8 flex justify-end">
+          <button
+            onClick={() => {
 
-  <button
-    onClick={() =>
-      navigate("/login", {
-        state: {
-          bookingData,
-          selectedTour,
-          selectedDeparture,
-        },
-      })
-    }
-    className="
-      w-full
-      lg:w-auto
-      flex
-      items-center
-      justify-center
-      gap-3
-      bg-gradient-to-r
-      from-[#0078AA]
-      to-[#009FD4]
-      hover:from-[#00658f]
-      hover:to-[#0086c4]
-      text-white
-      px-8
-      py-4
-      rounded-2xl
-      font-semibold
-      text-base
-      sm:text-lg
-      shadow-lg
-      hover:shadow-xl
-      transition-all
-      duration-300
-    "
-  >
-    Continue to Traveller Details
+              // Calculate Total
+              const subtotal =
+                bookingData.pricePerPerson * bookingData.adults +
+                bookingData.childPrice * bookingData.children +
+                bookingData.trainExtra;
 
-    <span className="text-xl">
-      →
-    </span>
+              // Save everything into Booking Context
+              setBooking((prev) => ({
+                ...prev,
 
-  </button>
+                tour: selectedTour,
 
-</div>
+                departure: {
+                  ...selectedDeparture,
+                  date: bookingData.departure,
+                },
+
+                guests: {
+                  adults: bookingData.adults,
+                  children: bookingData.children,
+                  infants: bookingData.infants || 0,
+                },
+
+                room: {
+                  type: bookingData.roomType,
+                  multiplier: 1,
+                },
+
+                train: {
+                  type: bookingData.train,
+                  extra: bookingData.trainExtra,
+                },
+
+                basePrice: bookingData.basePrice,
+                totalPrice: subtotal,
+              }));
+
+              navigate("/login", {
+                state: {
+                  bookingData,
+                  selectedTour,
+                  selectedDeparture,
+                },
+              });
+
+            }}
+            className="
+              w-full
+              lg:w-auto
+              flex
+              items-center
+              justify-center
+              gap-3
+              bg-gradient-to-r
+              from-[#0078AA]
+              to-[#009FD4]
+              hover:from-[#00658f]
+              hover:to-[#0086c4]
+              text-white
+              px-8
+              py-4
+              rounded-2xl
+              font-semibold
+              text-base
+              sm:text-lg
+              shadow-lg
+              hover:shadow-xl
+              transition-all
+              duration-300
+            "
+          >
+            Continue to Traveller Details
+
+            <span className="text-xl">
+              →
+            </span>
+
+          </button>
 
         </div>
 
       </div>
 
+    </div>
   );
 };
 

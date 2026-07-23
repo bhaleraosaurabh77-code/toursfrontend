@@ -87,44 +87,180 @@ const ReviewBooking = () => {
 
             {/* Traveller */}
 
-            <div className="bg-white rounded-3xl shadow-sm border p-6">
+<div className="bg-white rounded-3xl shadow-sm border p-6">
 
-              <h2 className="text-xl font-bold mb-5">
-                Traveller Details
-              </h2>
+  <h2 className="text-xl font-bold mb-6">
+    Traveller Details
+  </h2>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+  {/* Lead Traveller */}
 
-                <div className="flex items-center gap-3">
-                  <User className="text-[#0078AA]" />
-                  <div>
-                    <p className="text-gray-500 text-sm">
-                      Traveller Name
-                    </p>
+  <div className="rounded-2xl border border-[#D8ECF7] p-5 bg-[#F8FCFE]">
 
-                    <h3 className="font-semibold">
-                      {booking.traveller.name}
-                    </h3>
-                  </div>
-                </div>
+    <h3 className="font-semibold text-[#0078AA] mb-5">
+      Lead Traveller
+    </h3>
 
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="text-green-600" />
-                  <div>
-                    <p className="text-gray-500 text-sm">
-                      Mobile
-                    </p>
+    <div className="grid sm:grid-cols-2 gap-5">
 
-                    <h3 className="font-semibold">
-                      {booking.traveller.mobile}
-                    </h3>
-                  </div>
-                </div>
+      <div>
+        <p className="text-xs text-gray-500">
+          First Name
+        </p>
 
-              </div>
+        <h4 className="font-semibold">
+          {booking.traveller.firstName}
+        </h4>
+      </div>
 
+      <div>
+        <p className="text-xs text-gray-500">
+          Last Name
+        </p>
+
+        <h4 className="font-semibold">
+          {booking.traveller.lastName}
+        </h4>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Mobile
+        </p>
+
+        <h4 className="font-semibold">
+          {booking.traveller.mobile}
+        </h4>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Email
+        </p>
+
+        <h4 className="font-semibold break-all">
+          {booking.traveller.email}
+        </h4>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Gender
+        </p>
+
+        <h4 className="font-semibold">
+          {booking.traveller.gender}
+        </h4>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Date of Birth
+        </p>
+
+        <h4 className="font-semibold">
+          {booking.traveller.dob}
+        </h4>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Nationality
+        </p>
+
+        <h4 className="font-semibold">
+          {booking.traveller.nationality}
+        </h4>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          State
+        </p>
+
+        <h4 className="font-semibold">
+          {booking.traveller.state}
+        </h4>
+      </div>
+
+    </div>
+
+  </div>
+
+  {/* Co Travellers */}
+
+  {booking.coTravellers?.length > 0 && (
+
+    <div className="space-y-4 mt-6">
+
+      <h3 className="font-semibold text-[#0078AA]">
+        Co-Travellers
+      </h3>
+
+      {booking.coTravellers.map((traveller, index) => (
+
+        <div
+          key={index}
+          className="rounded-2xl border p-5"
+        >
+
+          <h4 className="font-semibold mb-4">
+            {traveller.type}
+          </h4>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+
+            <div>
+              <p className="text-xs text-gray-500">
+                First Name
+              </p>
+
+              <h4 className="font-semibold">
+                {traveller.firstName}
+              </h4>
             </div>
 
+            <div>
+              <p className="text-xs text-gray-500">
+                Last Name
+              </p>
+
+              <h4 className="font-semibold">
+                {traveller.lastName}
+              </h4>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500">
+                Gender
+              </p>
+
+              <h4 className="font-semibold">
+                {traveller.gender}
+              </h4>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500">
+                Date of Birth
+              </p>
+
+              <h4 className="font-semibold">
+                {traveller.dob}
+              </h4>
+            </div>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</div>
             {/* Tour */}
 
             <div className="bg-white rounded-3xl shadow-sm border p-6">

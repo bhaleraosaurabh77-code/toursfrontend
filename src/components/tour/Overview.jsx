@@ -14,7 +14,7 @@ const Overview = ({ tour }) => {
 
       {/* Heading */}
 
-      <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#0078AA] mb-6">
         Tour Overview
       </h2>
 
@@ -30,10 +30,10 @@ const Overview = ({ tour }) => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-8">
 
-        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+        <div className="bg-[#EAF7FC] border border-[#CDEAF5] rounded-xl p-4 sm:p-5 text-center hover:shadow-md hover:bg-[#E2F5FC] transition-all">
 
           <Clock
-            className="mx-auto text-blue-700"
+            className="mx-auto text-[#0078AA]"
             size={30}
           />
 
@@ -43,10 +43,10 @@ const Overview = ({ tour }) => {
 
         </div>
 
-        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+        <div className="bg-[#EAF7FC] border border-[#CDEAF5] rounded-xl p-4 sm:p-5 text-center hover:shadow-md hover:bg-[#E2F5FC] transition-all">
 
           <MapPin
-            className="mx-auto text-blue-700"
+            className="mx-auto text-[#0078AA]"
             size={30}
           />
 
@@ -56,10 +56,10 @@ const Overview = ({ tour }) => {
 
         </div>
 
-        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+        <div className="bg-[#EAF7FC] border border-[#CDEAF5] rounded-xl p-4 sm:p-5 text-center hover:shadow-md hover:bg-[#E2F5FC] transition-all">
 
           <Hotel
-            className="mx-auto text-blue-700"
+            className="mx-auto text-[#0078AA]"
             size={30}
           />
 
@@ -69,10 +69,10 @@ const Overview = ({ tour }) => {
 
         </div>
 
-        <div className="bg-blue-50 rounded-xl p-4 sm:p-5 text-center hover:shadow-md transition">
+        <div className="bg-[#EAF7FC] border border-[#CDEAF5] rounded-xl p-4 sm:p-5 text-center hover:shadow-md hover:bg-[#E2F5FC] transition-all">
 
           <Bus
-            className="mx-auto text-blue-700"
+            className="mx-auto text-[#0078AA]"
             size={30}
           />
 
@@ -86,11 +86,13 @@ const Overview = ({ tour }) => {
 
       {/* Includes */}
 
-      <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-5">
+      <h3 className="text-xl sm:text-2xl font-bold text-[#0078AA] mt-10 mb-5">
         Tour Includes
       </h3>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+        {/* Hotel */}
 
         <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
 
@@ -105,6 +107,8 @@ const Overview = ({ tour }) => {
 
         </div>
 
+        {/* Meals */}
+
         <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
 
           <Utensils
@@ -118,6 +122,8 @@ const Overview = ({ tour }) => {
 
         </div>
 
+        {/* Transport */}
+
         <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
 
           <Bus
@@ -130,6 +136,8 @@ const Overview = ({ tour }) => {
           </span>
 
         </div>
+
+        {/* Sightseeing */}
 
         <div className="bg-green-50 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 hover:shadow-md transition">
 
