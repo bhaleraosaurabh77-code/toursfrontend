@@ -230,6 +230,30 @@ const ReviewBooking = () => {
               </h4>
             </div>
 
+            {traveller.type.startsWith("Adult") && (
+  <>
+    <div>
+      <p className="text-xs text-gray-500">
+        Mobile
+      </p>
+
+      <h4 className="font-semibold">
+        {traveller.mobile}
+      </h4>
+    </div>
+
+    <div>
+      <p className="text-xs text-gray-500">
+        Email
+      </p>
+
+      <h4 className="font-semibold break-all">
+        {traveller.email}
+      </h4>
+    </div>
+  </>
+)}
+
             <div>
               <p className="text-xs text-gray-500">
                 Gender
